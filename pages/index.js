@@ -8,7 +8,8 @@ export default function Home() {
 
   const commandHandler = async (command) => {
     const res = await axios.get(`/api/command?command=${command}`);
-    return res;
+    const { result } = res.data;
+    return result;
   }
 
   return (

@@ -1,36 +1,77 @@
 import React, { useState } from 'react';
+import Linkify from "linkify-react";
 import TerminalLine from '../TerminalLine/TerminalLine';
 import styles from './Terminal.module.css';
+import { useEffect } from 'react';
+
 
 export default function Terminal({ user, host, commandHandler }) {
-    const [currentLine, setKeysPressed] = useState([]);
+    const [lineHistory, setLineHistory] = useState([[]]);
+    const [outputHistory, setOutputHistory] = useState([[]]);
 
     const handleCommand = async (command) => {
+        if (command === 'clear') {
+            setLineHistory([[]]);
+            setOutputHistory([[]]);
+            return;
+        }
         const res = await commandHandler(command);
-        console.log('got back from api', res.data);
+        setOutputHistory(prevOutput => [...prevOutput, res.split('\n')]);
+        setLineHistory(prevLines => [...prevLines, []]);
     }
-  
-    const handleKeyDown = (event) => {
-        // Add the pressed key to the state
-        setKeysPressed(prevKeys => {
-            if (event.key === 'Backspace') {
-              return prevKeys.slice(0, -1);
-            } else if (event.key === ' ') {
-              return [...prevKeys, '\u00A0'];
-            } else if (event.key === 'Shift') {
-              return [...prevKeys];
-            } else if (event.key === 'Enter') {
-              console.log('execute command!', prevKeys);
-              handleCommand(prevKeys.join(''));
-              return prevKeys;
-            }
-            return [...prevKeys, event.key];
-        });
-    };
 
+    useEffect(() => {
+      const keyDownHandler = event => {
+        // Add the pressed key to the state
+        setLineHistory(prevLines => {
+            let currentLine = prevLines[prevLines.length - 1]; 
+
+            if (event.key === 'Backspace') {
+              currentLine = currentLine.slice(0, -1);
+            } else if (event.key === ' ') {
+              currentLine = [...currentLine, '\u00A0'];
+            } else if (event.key === 'Shift') {
+              currentLine = [...currentLine];
+            } else if (event.key === 'Enter' || event.key === '\n' || event.key === '\r') {
+              const cmd = currentLine.join('');
+              handleCommand(cmd);
+              currentLine = [...currentLine];
+            } else {
+              currentLine = [...currentLine, event.key];
+            }
+
+            const lines = prevLines.slice(0, -1);
+            lines.push([...currentLine]);
+            return lines;
+        });
+      }
+
+      document.addEventListener('keydown', keyDownHandler);
+
+      return () => {
+        document.removeEventListener('keydown', keyDownHandler);
+      };
+    }, []);
+      
     return (
-        <div className={styles.container} tabIndex="0" onKeyDown={handleKeyDown}>
-            <TerminalLine className={styles.container} user={user} host={host} currentLine={currentLine} />
+        <div className={styles.container}>
+            {lineHistory.map((line, index) => (
+              <div key={index} >
+                <div>
+                  {outputHistory[index] && outputHistory[index].map((output, indexMsg) => (
+                    <div key={indexMsg} className={styles.outputLine}>
+                      <Linkify as="p">{output}</Linkify>
+                    </div>
+                  ))}
+                </div>
+                <TerminalLine 
+                  user={user} 
+                  host={host} 
+                  currentLine={line} 
+                  isCursorActive={index === lineHistory.length - 1} />
+              </div>
+            ))}
+            
         </div>
     )
 }

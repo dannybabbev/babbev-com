@@ -2,3 +2,8 @@
     background-color: black;
     padding: 5px;
 }
+
+.outputLine {
+    height: 1rem;
+    white-space: pre;
+}

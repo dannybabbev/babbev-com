@@ -6,6 +6,7 @@ export default function TerminalLine({
         user, 
         host, 
         currentLine,
+        isCursorActive = true,
     }) {
 
     const start = `${user}@${host}`;
@@ -19,7 +20,7 @@ export default function TerminalLine({
             {currentLine.map((key, index) => (
                     <Character key={index} character={key} className={styles.terminalFontColor} />
             ))}
-            <div className={styles.blinkingBox}></div>
+            { isCursorActive && <div className={styles.blinkingBox}></div> }
         </div>
     )
 }

@@ -2,10 +2,17 @@ import Character from '../Character/Character';
 
 import styles from './TerminalLine.module.css';
 
-export default function Terminal({ currentLine }) {
+export default function TerminalLine({ 
+        user, 
+        host, 
+        currentLine,
+    }) {
+
+    const start = `${user}@${host}`;
+    
     return (
         <div className={styles.container}>
-            <Character character="visitor@babbev-world" className={styles.terminalAccount} />
+            <Character character={start} className={styles.terminalAccount} />
             <Character character=":" className={styles.terminalSeparator} />
             <Character character="~" className={styles.terminalLine} />
             <Character character="$&nbsp;" className={styles.terminalSeparator} />

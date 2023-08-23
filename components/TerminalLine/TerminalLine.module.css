@@ -1,10 +1,6 @@
-
 .container {
-    position: relative;
-    display: inline-block;
-    background-color: black;
-    padding: 5px;
-    font-family: 'Courier New', monospace;
+  position: relative;
+  display: inline-block;
 }
 
 .terminalAccount {

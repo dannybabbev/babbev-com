@@ -36,6 +36,7 @@ class BabbevOS {
         const js = 2018;
         const python = 2018;
         const docker = 2018;
+        const react = 2019;
         const csharp = 3;
         const go = 3;
 
@@ -47,6 +48,7 @@ class BabbevOS {
             ['JavaScript / Ts', expStr(year - js)],
             ['Python', expStr(year - python)],
             ['Docker / Swarm / k8s', expStr(year - docker)],
+            ['React', expStr(year - react)],
             ['Go', expStr(go)],
             ['C#', expStr(csharp)],
         ];

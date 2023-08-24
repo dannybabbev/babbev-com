@@ -7,11 +7,11 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
-    "cli-table": "^0.3.11",
     "linkify-react": "^4.1.1",
     "linkifyjs": "^4.1.1",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "table": "^6.8.1"
   }
 }

@@ -1,29 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Linkify from "linkify-react";
 import TerminalInput from '../TerminalInput/TerminalInput';
 import styles from './Terminal.module.css';
 import { useEffect } from 'react';
 
 
-export default function Terminal({ user, host, commandHandler }) {
-    const [lineHistory, setLineHistory] = useState([[]]);
-    const [outputHistory, setOutputHistory] = useState([[]]);
+export default function Terminal({ 
+      user, 
+      host, 
+      commandHandler, 
+      height = '400px',
+    }) {
+
+    const introText = [
+      'Welcome to BabbevOS!',
+      'Type "help" to get started.',
+      '',
+    ];
+    const [inputHistory, setInputHistory] = useState([[]]);
+    const [outputHistory, setOutputHistory] = useState([ introText ]);
+    const messagesEndRef = useRef(null);
+
+    const scrollToBottom = () => {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    };
 
     const handleCommand = async (command) => {
         if (command === 'clear') {
-            setLineHistory([[]]);
+            setInputHistory([[]]);
             setOutputHistory([[]]);
             return;
         }
         const res = await commandHandler(command);
+        console.log(res);
         setOutputHistory(prevOutput => [...prevOutput, res.split('\n')]);
-        setLineHistory(prevLines => [...prevLines, []]);
+        setInputHistory(prevLines => [...prevLines, []]);
     }
 
     useEffect(() => {
       const keyDownHandler = event => {
         // Add the pressed key to the state
-        setLineHistory(prevLines => {
+        setInputHistory(prevLines => {
             let currentLine = prevLines[prevLines.length - 1]; 
 
             if (event.key === 'Backspace') {
@@ -52,10 +69,14 @@ export default function Terminal({ user, host, commandHandler }) {
         document.removeEventListener('keydown', keyDownHandler);
       };
     }, []);
+
+    useEffect(() => {
+      scrollToBottom();
+    }, [outputHistory]);
       
     return (
-        <div className={styles.container}>
-            {lineHistory.map((line, index) => (
+        <div className={styles.container} style={{ height: height }}>
+            {inputHistory.map((line, index) => (
               <div key={index} >
                 <div className={styles.outputText}>
                   {outputHistory[index] && outputHistory[index].map((output, indexMsg) => (
@@ -68,10 +89,12 @@ export default function Terminal({ user, host, commandHandler }) {
                   user={user} 
                   host={host} 
                   currentLine={line} 
-                  isCursorActive={index === lineHistory.length - 1} />
+                  isCursorActive={index === inputHistory.length - 1} />
               </div>
             ))}
-            
+
+            <div ref={messagesEndRef}> 
+            </div>
         </div>
     )
 }

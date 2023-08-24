@@ -1,35 +1,33 @@
-import Table from 'cli-table';
+import { table, getBorderCharacters } from 'table';
 
 class BabbevOS {
-    getDefaultTable = (cols = [15, 50]) => new Table({
-        colWidths: cols,
-        chars: { 'top': '' , 'top-mid': '' , 'top-left': '' , 'top-right': ''
-        , 'bottom': '' , 'bottom-mid': '' , 'bottom-left': '' , 'bottom-right': ''
-        , 'left': '' , 'left-mid': '' , 'mid': '' , 'mid-mid': ''
-        , 'right': '' , 'right-mid': '' , 'middle': '' },
-    });
+    constructor() {
+        this.borderlessTable = {
+            border: getBorderCharacters('void'),
+            columnDefault: {
+                paddingLeft: 0,
+                paddingRight: 0,
+            },
+            columns: [ { width: 20 }, { width: 50 } ],
+            drawHorizontalLine: () => false,
+        }
+    }
+
+    intro = () => `Welcome to babbev.com! Type 'help' to get started.\n`
     
-    /**
-     * @param {[string[]]} data 
-     * @returns {string}
-     */
-    renderTable = (...data) => {
-        const table = this.getDefaultTable();
-        table.push(...data);
-    
-        return table.toString();
-    };
-    
-    help = () => this.renderTable(
-        ['babbev.com'],
-        [''],
-        ['Usage:'],
-        ['help', 'this message or help for a specific command'],
-        ['about', 'short about me, experience, cv'],
-        ['projects', 'projects I\'ve worked on'],
-        ['contact', 'contact information'],
-        ['social', 'social media links'],
-        ['source', 'link to the source code of this app'],
+    help = () => table(
+        [
+            ['babbev.com', ''],
+            ['', ''],
+            ['Usage:', ''],
+            ['help', 'this message or help for a specific command'],
+            ['about', 'short about me, experience, cv'],
+            ['projects', 'projects I\'ve worked on'],
+            ['contact', 'contact information'],
+            ['social', 'social media links'],
+            ['source', 'link to the source code of this app'],
+        ],
+        this.borderlessTable,
     );
     
     experience = () => {
@@ -43,38 +41,34 @@ class BabbevOS {
 
         const expStr = (y) => `${y}+`;
 
-        const table = new Table({ 
-            chars: { 'top': '' , 'top-mid': '' , 'top-left': '' , 'top-right': ''
-            , 'bottom': '' , 'bottom-mid': '' , 'bottom-left': '' , 'bottom-right': ''
-            , 'left': '' , 'left-mid': '' , 'mid': '─' , 'mid-mid': ''
-            , 'right': '' , 'right-mid': '' , 'middle': '│' },
-            rows: [
-                ['Technology', 'Years'],
-                ['Bitcoin/Crypto', expStr(year - crypto)],
-                ['JavaScript', expStr(year - js)],
-                ['Go', expStr(year - go)],
-                ['Python', expStr(year - python)],
-                ['Docker', expStr(year - docker)],
-                ['C#', expStr(year - csharp)],
-            ]
-        });
+        const data = [
+            ['Technology', 'Years of experience'],
+            ['Bitcoin/Crypto', expStr(year - crypto)],
+            ['JavaScript', expStr(year - js)],
+            ['Go', expStr(year - go)],
+            ['Python', expStr(year - python)],
+            ['Docker', expStr(year - docker)],
+            ['C#', expStr(year - csharp)],
+        ];
 
-        return table.toString();
+        return table(data, {
+            border: getBorderCharacters('ramac'),
+        });
     }
 
     about = () => 
         `Full-stack software enginner with a passion for crypto.\n\n${this.experience()}`;
     
-    contact = () => this.renderTable(
+    contact = () => table([
         ['Email', 'daniel@babbev.com'],
-        ['Telegram', 'danbb_fp'],
-    );
+        ['Telegram', 'https://t.me/danbb_fp'],
+    ], this.borderlessTable);
     
-    social = () => this.renderTable(
+    social = () => table([
         ['GitHub', 'https://github.com/dannybabbev/'],
         ['LinkedIn', 'https://www.linkedin.com/in/danielbabbev/'],
         ['Twitter', 'https://twitter.com/danbb_fp'],
-    );
+    ], this.borderlessTable);
     
     source = () => 'https://github.com/dannybabbev/babbev-com';
 

@@ -1,6 +1,9 @@
 .container {
     background-color: black;
     padding: 5px;
+    height: 500px; 
+    overflow-y: scroll; 
+    border: 1px solid wheat;
 }
 
 .outputLine {

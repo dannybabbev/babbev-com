@@ -1,8 +1,8 @@
 import Character from '../Character/Character';
 
-import styles from './TerminalLine.module.css';
+import styles from './TerminalInput.module.css';
 
-export default function TerminalLine({ 
+export default function TerminalInput({ 
         user, 
         host, 
         currentLine,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Linkify from "linkify-react";
-import TerminalLine from '../TerminalLine/TerminalLine';
+import TerminalInput from '../TerminalInput/TerminalInput';
 import styles from './Terminal.module.css';
 import { useEffect } from 'react';
 
@@ -64,7 +64,7 @@ export default function Terminal({ user, host, commandHandler }) {
                     </div>
                   ))}
                 </div>
-                <TerminalLine 
+                <TerminalInput 
                   user={user} 
                   host={host} 
                   currentLine={line} 

@@ -1,4 +1,4 @@
-import babbevExec from '../../model/babbev';
+import BabbevOS from '../../model/os';
 
 export default function handler(req, res) {
     const { command } = req.query;
@@ -8,7 +8,9 @@ export default function handler(req, res) {
         });
     }
 
-    const out = babbevExec(command);
+    const os = new BabbevOS();
+
+    const out = os.cmd(command);
 
     res.status(200).json({ 
         result: out, 

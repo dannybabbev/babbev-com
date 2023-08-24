@@ -13,7 +13,7 @@ class BabbevOS {
         }
     }
 
-    intro = () => `Welcome to babbev.com! Type 'help' to get started.\n`
+    notFound = () => `Command not found. Type "help" to get started.`;
     
     help = () => table(
         [
@@ -65,8 +65,8 @@ class BabbevOS {
     ], this.borderlessTable);
     
     social = () => table([
-        ['GitHub', 'https://github.com/dannybabbev/'],
-        ['LinkedIn', 'https://www.linkedin.com/in/danielbabbev/'],
+        ['GitHub', 'https://github.com/dannybabbev'],
+        ['LinkedIn', 'https://www.linkedin.com/in/danielbabbev'],
         ['Twitter', 'https://twitter.com/danbb_fp'],
     ], this.borderlessTable);
     
@@ -90,7 +90,7 @@ class BabbevOS {
             case 'source':
                 return this.source();
             default:
-                return this.help();
+                return this.notFound();
         }
     }
 }

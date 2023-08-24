@@ -18,7 +18,11 @@ export default function Home() {
 
       <main>
         <div>
-          <Terminal user='guest' host='babbev-vm' commandHandler={commandHandler} />
+          <Terminal 
+            height='80vh'
+            user='guest' 
+            host='babbev-vm' 
+            commandHandler={commandHandler} />
         </div>
       </main>
     </div>

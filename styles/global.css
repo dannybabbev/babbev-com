@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+:root {
+  --terminal-account: #26a269;
+  --terminal-path: #12488b;
+  --terminal-font-color: #00ff00;
+}
+
 html,
 body {
   margin: 0;
@@ -44,7 +50,7 @@ button {
   font-weight: bold;
 }
 
-h1, h2, h3, h4, h5, h6, p, span {
-  color: #fff;
+h1, h2, h3, h4, h5, h6, p, a, span {
+  color: var(--terminal-font-color);
   font-family: 'Ubuntu Mono', sans-serif;
 }

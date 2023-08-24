@@ -4,20 +4,20 @@
 }
 
 .terminalAccount {
-  color: #26a269;
+  color: var(--terminal-account);
   font-weight: bold;
 }
 
 .terminalSeparator {
-  color: #00ff00;
+  color: var(--terminal-font-color);
 }
 
 .terminalLine {
-  color: #12488b;
+  color: var(--terminal-path);
 }
 
 .terminalFontColor {
-  color: #00ff00;
+  color: var(--terminal-font-color);
 }
   
 

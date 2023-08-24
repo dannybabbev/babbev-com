@@ -35,7 +35,8 @@ const help = () => renderTable(
 const about = () => ` Software enginner with a passion for crypto.`;
 
 const contact = () => renderTable(
-    ['email', 'daniel@babbev.com']
+    ['Email #1', 'daniel@babbev.com'],
+    ['Email #2', 'danbb@pm.me'],
 );
 
 const social = () => renderTable(

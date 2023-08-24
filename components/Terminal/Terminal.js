@@ -57,7 +57,7 @@ export default function Terminal({ user, host, commandHandler }) {
         <div className={styles.container}>
             {lineHistory.map((line, index) => (
               <div key={index} >
-                <div>
+                <div className={styles.outputText}>
                   {outputHistory[index] && outputHistory[index].map((output, indexMsg) => (
                     <div key={indexMsg} className={styles.outputLine}>
                       <Linkify as="p">{output}</Linkify>

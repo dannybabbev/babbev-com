@@ -7,3 +7,7 @@
     height: 1rem;
     white-space: pre;
 }
+
+.outputText {
+    color: var(--terminal-font-color);
+}

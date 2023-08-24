@@ -34,21 +34,21 @@ class BabbevOS {
         const year = new Date().getFullYear();
         const crypto = 2015;
         const js = 2018;
-        const go = 2018;
         const python = 2018;
         const docker = 2018;
-        const csharp = 2020;
+        const csharp = 3;
+        const go = 3;
 
         const expStr = (y) => `${y}+`;
 
         const data = [
             ['Technology', 'Years of experience'],
-            ['Bitcoin/Crypto', expStr(year - crypto)],
-            ['JavaScript', expStr(year - js)],
+            ['Bitcoin / Crypto', expStr(year - crypto)],
+            ['JavaScript / Ts', expStr(year - js)],
             ['Python', expStr(year - python)],
-            ['Go', expStr(year - go)],
-            ['Docker', expStr(year - docker)],
-            ['C#', expStr(year - csharp)],
+            ['Docker / Swarm / k8s', expStr(year - docker)],
+            ['Go', expStr(go)],
+            ['C#', expStr(csharp)],
         ];
 
         return table(data, {
@@ -60,8 +60,8 @@ class BabbevOS {
         const data = [
             ['Company', 'Period', 'Position', 'Description'],
             ['Brevan Howard', 'May 2022 - May 2023', 'Risk Strategist', 'Developed a risk management system for the crypto trading desk.'],
-            ['Bitcoin Suisse', 'June 2020 - May 2022', 'Crypto Developer', 'Developed the deposit and withdrawal crypto systems'],
-            ['Fair Poker', 'June 2018 - June 2021', 'Founder & Develper', 'Developed a full crypto poker platform.'],
+            ['Bitcoin Suisse', 'May 2020 - April 2022', 'Crypto Developer', 'Developed the deposit and withdrawal crypto systems.'],
+            ['Fair Poker', 'Nov 2018 - Dec 2021', 'Founder & Developer', 'Developed a full crypto poker platform.'],
         ];
 
         return table(data, {
@@ -72,9 +72,10 @@ class BabbevOS {
     about = () => 
         `My name is Daniel Babbev, currently based in Geneva, Switzerland.
 I am a full-stack software enginner with a passion for crypto.
-I am expericed in building full crypto systems from scratch. My
-approach is to write clean, test-driven code with emphasis on 
-security.
+I am expericed in building full crypto systems from scratch and
+maintaining existing enterprise-level software. My approach to 
+development is to write clean, test-driven code with an emphasis 
+on security.
 
 Experience:
 ${this.experience()}

@@ -15,12 +15,12 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>BabbevOS</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Terminal user='visitor' host='babbev-world' commandHandler={commandHandler} />
+        <Terminal user='guest' host='babbev-vm' commandHandler={commandHandler} />
       </main>
     </div>
   )

@@ -35,6 +35,8 @@ export default function Terminal({
 
     useEffect(() => {
       const keyDownHandler = event => {
+        scrollToBottom();
+
         // Add the pressed key to the state
         setInputHistory(prevLines => {
             let currentLine = prevLines[prevLines.length - 1]; 

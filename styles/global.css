@@ -9,7 +9,7 @@
 html,
 body {
   margin: 0;
-  font-family: 'Ubuntu Mono', sans-serif;
+  font-family: 'Ubuntu Mono', 'Ubuntu', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;

@@ -1,5 +1,5 @@
 .container {
-    background-color: black;
+    background-color: var(--background-color);
     padding: 5px;
     height: 500px; 
     overflow-y: scroll; 

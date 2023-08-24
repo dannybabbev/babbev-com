@@ -4,6 +4,7 @@
   --terminal-account: #26a269;
   --terminal-path: #12488b;
   --terminal-font-color: #00ff00;
+  --background-color: #161616;
 }
 
 html,
@@ -12,7 +13,7 @@ body {
   font-family: 'Ubuntu Mono', 'Ubuntu', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: var(--background-color);
 }
 
 a {

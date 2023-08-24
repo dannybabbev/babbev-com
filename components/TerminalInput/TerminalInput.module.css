@@ -25,8 +25,15 @@
   width: 10px;          /* Adjust width as per your preference */
   height: 20px;         /* Adjust height to look like a cursor */
   background-color: var(--terminal-font-color);  /* Ubuntu terminal-like green color */
-  animation: blink 1s infinite;  /* Apply blinking animation */
   float: right;
+}
+
+.systemInfoGroup {
+  display: inherit;
+}
+
+.blinking {
+  animation: blink 1s infinite;  /* Apply blinking animation */
 }
 
 

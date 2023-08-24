@@ -5,18 +5,14 @@ import styles from './Terminal.module.css';
 import { useEffect } from 'react';
 
 
-export default function Terminal({ 
+export default function Terminal({
       user, 
       host, 
       commandHandler, 
+      introText = [],
       height = '400px',
     }) {
-
-    const introText = [
-      'Welcome to BabbevOS!',
-      'Type "help" to get started.',
-      '',
-    ];
+      
     const [inputHistory, setInputHistory] = useState([[]]);
     const [outputHistory, setOutputHistory] = useState([ introText ]);
     const messagesEndRef = useRef(null);

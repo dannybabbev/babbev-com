@@ -13,7 +13,7 @@ class BabbevOS {
         }
     }
 
-    notFound = () => `Command not found. Type "help" to get started.`;
+    notFound = (cmd) => `${cmd}: command not found. Type "help" to get started.`;
     
     help = () => table(
         [
@@ -102,7 +102,13 @@ ${this.techExp()}`;
      * @returns 
      */
     cmd = (command) => {
-        switch (command) {
+        const cmdArray = command
+            .trim()
+            .replace(' ', ' ')
+            .split(' ')
+            .filter(x => x !== ' ');
+        const [ arg1 ] = cmdArray;
+        switch (arg1) {
             case 'help':
                 return this.help();
             case 'about':
@@ -114,7 +120,7 @@ ${this.techExp()}`;
             case 'source':
                 return this.source();
             default:
-                return this.notFound();
+                return this.notFound(arg1);
         }
     }
 }

@@ -1,6 +1,6 @@
 # babbev-com
 
-This is the source code for my personal website, [babbev.com](https://babbev.com).
+This is the source code for my personal website, written in Next.JS [babbev.com](https://babbev.com).
 
 ## Commands
 

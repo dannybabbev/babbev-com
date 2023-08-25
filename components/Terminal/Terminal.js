@@ -51,7 +51,8 @@ export default function Terminal({
               const cmd = currentLine.join('');
               handleCommand(cmd);
               currentLine = [...currentLine];
-            } else {
+            } else if (event.key.length === 1) {
+              // On non ascii-keys even.key is multiple characters long
               currentLine = [...currentLine, event.key];
             }
 

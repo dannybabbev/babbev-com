@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Terminal from '../components/Terminal/Terminal';
 import IntroAnimation from '../components/IntroAnimation/IntroAnimation';
+import { GRAFITI_ARRAY } from '../helpers/consts';
 
 import BabbevOS from '../model/os';
 
@@ -20,11 +21,11 @@ export default function Home() {
   },[displayIntroAnimation]);
 
   const introText = [
+    ...GRAFITI_ARRAY,
     'Welcome to BabbevOS!',
     'This is my personal website.',
     'Browse around to learn about me and have fun!',
     'Type "help" to get started.',
-    '',
   ];
 
   const commandHandler = async (command) => os.cmd(command);

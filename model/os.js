@@ -71,12 +71,12 @@ class BabbevOS {
     }
 
     about = () => 
-        `My name is Daniel Babbev, currently based in Geneva, Switzerland.
-I am a full-stack software enginner with a passion for crypto.
-I am expericed in building full crypto systems from scratch and
-maintaining existing enterprise-level software. My approach to 
-development is to write clean, test-driven code with an emphasis 
-on security.
+        `My name is Daniel Babbev, from Sofia, Bulgaria. I am currently based 
+in Geneva, Switzerland. I am a full-stack software engineer with a 
+passion for crypto. I am expericed in building full crypto systems from
+scratch and maintaining existing enterprise-level software. My approach
+to development is to write clean, test-driven code with an emphasis on 
+security.
 
 Experience:
 ${this.experience()}

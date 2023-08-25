@@ -84,7 +84,9 @@ Experience:
 ${this.experience()}
 
 Technologies:
-${this.techExp()}`;
+${this.techExp()}
+
+Full Resume: https://babbev.com/cv.pdf`;
     
     contact = () => table([
         ['Email', 'daniel@babbev.com'],

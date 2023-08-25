@@ -100,16 +100,11 @@ ${this.techExp()}`;
 
     /**
      * Execute command
-     * @param {string} command 
+     * @param {string[]} command
      * @returns 
      */
     cmd = (command) => {
-        const cmdArray = command
-            .trim()
-            .replace(' ', ' ')
-            .split(' ')
-            .filter(x => x !== ' ');
-        const [ arg1 ] = cmdArray;
+        const [ arg1 ] = command;
         switch (arg1) {
             case 'help':
                 return this.help();

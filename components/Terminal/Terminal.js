@@ -21,14 +21,20 @@ export default function Terminal({
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     };
 
+    /**
+     * @param {string[]} command 
+     * @returns 
+     */
     const handleCommand = async (command) => {
-        if (command === 'clear') {
+        const [ arg1 ] = command;
+        if (arg1 === 'clear') {
             setInputHistory([[]]);
             setOutputHistory([[]]);
             return;
         }
+
         const res = await commandHandler(command);
-        console.log(res);
+
         setOutputHistory(prevOutput => [...prevOutput, res.split('\n')]);
         setInputHistory(prevLines => [...prevLines, []]);
     }
@@ -48,7 +54,12 @@ export default function Terminal({
             } else if (event.key === 'Shift') {
               currentLine = [...currentLine];
             } else if (event.key === 'Enter' || event.key === '\n' || event.key === '\r') {
-              const cmd = currentLine.join('');
+              // build the command array from input line
+              const cmd = currentLine
+                .join('')
+                .split('\u00A0')
+                .filter(x => x !== '');
+
               handleCommand(cmd);
               currentLine = [...currentLine];
             } else if (event.key.length === 1) {

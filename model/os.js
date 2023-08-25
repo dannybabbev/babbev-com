@@ -22,7 +22,6 @@ class BabbevOS {
             ['Usage:', ''],
             ['help', 'this message or help for a specific command'],
             ['about', 'short about me, experience, cv'],
-            ['projects', 'projects I\'ve worked on'],
             ['contact', 'contact information'],
             ['social', 'social media links'],
             ['source', 'link to the source code of this app'],

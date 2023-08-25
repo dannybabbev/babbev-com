@@ -31,6 +31,11 @@ export default function Terminal({
             setInputHistory([[]]);
             setOutputHistory([[]]);
             return;
+        } else if (command.length === 0) {
+            // Empty line if no command is given
+            setOutputHistory(prevOutput => [...prevOutput, []]);
+            setInputHistory(prevLines => [...prevLines, []]);
+            return;
         }
 
         const res = await commandHandler(command);

@@ -32,6 +32,7 @@ class BabbevOS {
     techExp = () => {
         const year = new Date().getFullYear();
         const crypto = 2015;
+        const linux = 2018;
         const js = 2018;
         const python = 2018;
         const docker = 2018;
@@ -44,6 +45,7 @@ class BabbevOS {
         const data = [
             ['Technology', 'Years of experience'],
             ['Bitcoin / Crypto', expStr(year - crypto)],
+            ['Linux', expStr(year - linux)],
             ['JavaScript / Ts', expStr(year - js)],
             ['Python', expStr(year - python)],
             ['Docker / Swarm / k8s', expStr(year - docker)],

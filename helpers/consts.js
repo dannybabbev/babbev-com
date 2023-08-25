@@ -7,4 +7,12 @@ __________       ___.  ___.               ________    _________
         \\/      \\/    \\/    \\/     \\/             \\/        \\/ 
 `
 
-export const GRAFITI_ARRAY = GRAFFITI.split('\n')
+export const GRAFITI_ARRAY = GRAFFITI.split('\n');
+
+export const INTRO_TEXT = [
+  ...GRAFITI_ARRAY,
+  'Welcome to BabbevOS!',
+  'This is my personal website.',
+  'Browse around to learn about me and have fun!',
+  'Type "help" to get started.',
+];

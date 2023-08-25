@@ -103,6 +103,10 @@ ${this.techExp()}`;
      * @returns 
      */
     cmd = (command) => {
+        if (!command || command.length === 0) {
+            return null;
+        }
+
         const [ arg1 ] = command;
         switch (arg1) {
             case 'help':

@@ -6,7 +6,7 @@ class BabbevOS {
             border: getBorderCharacters('void'),
             columnDefault: {
                 paddingLeft: 0,
-                paddingRight: 0,
+                paddingRight: 1,
             },
             columns: [ { width: 20 }, { width: 50 } ],
             drawHorizontalLine: () => false,
@@ -22,6 +22,7 @@ class BabbevOS {
             ['Usage:', ''],
             ['help', 'this message or help for a specific command'],
             ['about', 'short about me, experience, cv'],
+            ['books', 'my favorite books'],
             ['contact', 'contact information'],
             ['social', 'social media links'],
             ['source', 'link to the source code of this app'],
@@ -101,6 +102,23 @@ Full Resume: https://babbev.com/cv.pdf`;
     
     source = () => 'https://github.com/dannybabbev/babbev-com';
 
+    booksTable = () => table([
+        ['Atlas Shrugged', 'Ayn Rand'],
+        ['The Mistery of Banking', 'Murray Rothbard'],
+        ['The Black Swan', 'Nassim Taleb'],
+        ['The Blocksize War', 'Jonathan Bier'],
+        ['Reckless: The Story Of Cryptocurrency Interest Rates', 'Jonathan Bier'],
+        ['Zero to One', 'Peter Thiel'],
+    ], {
+        ...this.borderlessTable,
+        columns: [ { width: 40 }, { width: 30 } ],
+    });
+
+    books =() => `Those are the top picks of my favorite books.
+I enjoy reading about philosophy, economics and history.
+
+${this.booksTable()}`;
+
     /**
      * Execute command
      * @param {string[]} command
@@ -123,6 +141,8 @@ Full Resume: https://babbev.com/cv.pdf`;
                 return this.social();
             case 'source':
                 return this.source();
+            case 'books':
+                return this.books();
             default:
                 return this.notFound(arg1);
         }

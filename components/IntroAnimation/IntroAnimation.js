@@ -12,7 +12,7 @@ export default function IntroAnimation({ fadeOutAfter = 5000 }) {
       setTimeout(() => {
         setIsFaded(true);
       }, fadeOutAfter);
-    }, [isFaded]);
+    }, [isFaded, fadeOutAfter]);
 
     const twClasses = classNames(
       styles.container,

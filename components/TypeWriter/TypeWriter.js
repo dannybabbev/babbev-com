@@ -18,7 +18,7 @@ export default function TyperWriter({ text, speed = 100,  }) {
         }, speed);  // adjust the timing for typing speed
 
         return () => clearInterval(intervalId); // cleanup on component unmount
-    }, [index, displayText]);
+    }, [index, displayText, speed, text]);
 
     return (
         <div>

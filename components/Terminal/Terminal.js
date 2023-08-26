@@ -21,68 +21,72 @@ export default function Terminal({
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     };
 
-    /**
-     * @param {string[]} command 
-     * @returns 
-     */
-    const handleCommand = async (command) => {
-        const [ arg1 ] = command;
-        if (arg1 === 'clear') {
-            setInputHistory([[]]);
-            setOutputHistory([[]]);
-            return;
+    useEffect(() => {
+      /**
+       * @param {string[]} command
+       * @returns
+       */
+      const handleCommand = async (command) => {
+        const [arg1] = command;
+        if (arg1 === "clear") {
+          setInputHistory([[]]);
+          setOutputHistory([[]]);
+          return;
         }
 
         const res = await commandHandler(command);
         if (res === null) {
-          setOutputHistory(prevOutput => [...prevOutput, []]);
+          setOutputHistory((prevOutput) => [...prevOutput, []]);
         } else {
-          setOutputHistory(prevOutput => [...prevOutput, res.split('\n')]);
+          setOutputHistory((prevOutput) => [...prevOutput, res.split("\n")]);
         }
 
-        setInputHistory(prevLines => [...prevLines, []]);
-    }
+        setInputHistory((prevLines) => [...prevLines, []]);
+      };
 
-    useEffect(() => {
-      const keyDownHandler = event => {
+      const keyDownHandler = (event) => {
         scrollToBottom();
 
         // Add the pressed key to the state
-        setInputHistory(prevLines => {
-            let currentLine = prevLines[prevLines.length - 1]; 
+        setInputHistory((prevLines) => {
+          let currentLine = prevLines[prevLines.length - 1];
 
-            if (event.key === 'Backspace') {
-              currentLine = currentLine.slice(0, -1);
-            } else if (event.key === ' ') {
-              currentLine = [...currentLine, '\u00A0'];
-            } else if (event.key === 'Shift') {
-              currentLine = [...currentLine];
-            } else if (event.key === 'Enter' || event.key === '\n' || event.key === '\r') {
-              // build the command array from input line
-              const cmd = currentLine
-                .join('')
-                .split('\u00A0')
-                .filter(x => x !== '');
+          if (event.key === "Backspace") {
+            currentLine = currentLine.slice(0, -1);
+          } else if (event.key === " ") {
+            currentLine = [...currentLine, "\u00A0"];
+          } else if (event.key === "Shift") {
+            currentLine = [...currentLine];
+          } else if (
+            event.key === "Enter" ||
+            event.key === "\n" ||
+            event.key === "\r"
+          ) {
+            // build the command array from input line
+            const cmd = currentLine
+              .join("")
+              .split("\u00A0")
+              .filter((x) => x !== "");
 
-              handleCommand(cmd);
-              currentLine = [...currentLine];
-            } else if (event.key.length === 1) {
-              // On non ascii-keys even.key is multiple characters long
-              currentLine = [...currentLine, event.key];
-            }
+            handleCommand(cmd);
+            currentLine = [...currentLine];
+          } else if (event.key.length === 1) {
+            // On non ascii-keys even.key is multiple characters long
+            currentLine = [...currentLine, event.key];
+          }
 
-            const lines = prevLines.slice(0, -1);
-            lines.push([...currentLine]);
-            return lines;
+          const lines = prevLines.slice(0, -1);
+          lines.push([...currentLine]);
+          return lines;
         });
-      }
+      };
 
-      document.addEventListener('keydown', keyDownHandler);
+      document.addEventListener("keydown", keyDownHandler);
 
       return () => {
-        document.removeEventListener('keydown', keyDownHandler);
+        document.removeEventListener("keydown", keyDownHandler);
       };
-    }, []);
+    }, [commandHandler]);
 
     useEffect(() => {
       scrollToBottom();

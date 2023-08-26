@@ -34,19 +34,17 @@ export default function Home() {
         <meta property="og:description" content="Personal website" />
       </Head>
 
-      <main>
-        <div>
-          { displayIntroAnimation && <IntroAnimation fadeOutAfter={beginFadeOutAfter} /> }
-          { !displayIntroAnimation &&  
-            <Terminal
-              height='80vh'
-              user='neo'
-              host='mtgox-prod-1'
-              commandHandler={commandHandler}
-              introText={INTRO_TEXT} />
-            }
-        </div>
-      </main>
+      <div>
+        { displayIntroAnimation && <IntroAnimation fadeOutAfter={beginFadeOutAfter} /> }
+        { !displayIntroAnimation &&  
+          <Terminal
+            height='80vh'
+            user='neo'
+            host='mtgox-prod-1'
+            commandHandler={commandHandler}
+            introText={INTRO_TEXT} />
+          }
+      </div>
     </div>
   )
 }

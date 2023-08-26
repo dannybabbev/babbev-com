@@ -27,6 +27,11 @@ export default function Home() {
       <Head>
         <title>BabbevOS</title>
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="description" content="Personal Website of Daniel Babbev" />
+        <meta property="og:image" content="https://www.babbev.com/og-image.png"></meta>
+        <meta property="og:title" content="Daniel Babbev"></meta>
+        <meta property="og:description" content="Personal website" />
       </Head>
 
       <main>

@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.2",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "linkify-react": "^4.1.1",

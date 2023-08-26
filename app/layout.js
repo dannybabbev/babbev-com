@@ -12,7 +12,7 @@ export const metadata = {
       icon: '/favicon.ico',
     },
     title: 'BabbevOS',
-    description: 'Personal Website of Daniel Babbev',
+    description: 'Personal website of Daniel Babbev',
     openGraph: {
       title: 'BabbevOS',
       images: '/og-image.png',

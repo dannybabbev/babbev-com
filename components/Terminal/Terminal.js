@@ -46,6 +46,8 @@ export default function Terminal({
       };
 
       const keyDownHandler = (event) => {
+        event.preventDefault();
+
         scrollToBottom();
 
         // Add the pressed key to the state
@@ -100,7 +102,7 @@ export default function Terminal({
                 <div className={styles.outputText}>
                   {outputHistory[index] && outputHistory[index].map((output, indexMsg) => (
                     <div key={indexMsg} className={styles.outputLine}>
-                      <Linkify as="p">{output}</Linkify>
+                      <Linkify as="p" options={{target: '_blank'}}>{output}</Linkify>
                     </div>
                   ))}
                 </div>

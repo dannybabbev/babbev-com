@@ -105,7 +105,7 @@ ${this.techExp()}`;
         ['The Mistery of Banking', 'Murray Rothbard'],
         ['The Black Swan', 'Nassim Taleb'],
         ['The Blocksize War', 'Jonathan Bier'],
-        ['Reckless: The Story Of Cryptocurrency Interest Rates', 'Jonathan Bier'],
+        ['Reckless', 'Jonathan Bier'],
         ['Zero to One', 'Peter Thiel'],
     ], {
         ...this.borderlessTable,

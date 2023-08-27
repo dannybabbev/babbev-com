@@ -16,6 +16,7 @@ export default function Terminal({
     const [inputHistory, setInputHistory] = useState([[]]);
     const [outputHistory, setOutputHistory] = useState([ introText ]);
     const messagesEndRef = useRef(null);
+    const inputRef = useRef(null);
 
     const scrollToBottom = () => {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
@@ -91,6 +92,10 @@ export default function Terminal({
     useEffect(() => {
       scrollToBottom();
     }, [outputHistory]);
+
+    useEffect(() => {
+      inputRef.current.focus();
+    });
       
     return (
         <div className={styles.container} style={{ height: height }}>
@@ -113,6 +118,8 @@ export default function Terminal({
 
             <div ref={messagesEndRef}> 
             </div>
+
+            <input ref={inputRef} className={styles.hiddenInput} placeholder="Type here..." />
         </div>
     )
 }

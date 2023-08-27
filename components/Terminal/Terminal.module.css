@@ -30,3 +30,7 @@
     color: var(--terminal-font-color);
     margin: 2px 0 2px 0;
 }
+
+.hiddenInput {
+    display: none;
+}

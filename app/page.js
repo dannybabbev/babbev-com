@@ -12,14 +12,15 @@ export default function Page() {
   const os = new BabbevOS();
   const [displayIntroAnimation, setDisplayIntroAnimaion] = useState(true);
 
-  const beginFadeOutAfter = 4000;
-  const hideAnimationAfter = 5000;
+  const beginFadeOutAfter = 3000;
+  const fadeOutTime = 1000;
+  const hideAnimationAfter = beginFadeOutAfter + fadeOutTime;
 
   useEffect(() => {
     setTimeout(() => {
       setDisplayIntroAnimaion(false);
     }, hideAnimationAfter);
-  },[displayIntroAnimation]);
+  },[displayIntroAnimation, hideAnimationAfter]);
 
   const commandHandler = async (command) => os.cmd(command);
 

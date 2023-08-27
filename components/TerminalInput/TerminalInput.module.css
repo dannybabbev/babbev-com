@@ -60,5 +60,5 @@
   white-space: pre;
   width: 16px;
   text-shadow: 0px 0px 0px;
-  font-size: 1px;
+  caret-color: transparent;
 }

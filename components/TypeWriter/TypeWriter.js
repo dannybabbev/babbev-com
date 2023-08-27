@@ -22,7 +22,7 @@ export default function TyperWriter({ text, speed = 100,  }) {
 
     return (
         <div>
-            <TerminalInput currentLine={displayText} isTyping={isTyping} hideSystemInfo={true} />
+            <TerminalInput writable={false} currentLine={displayText} isTyping={isTyping} hideSystemInfo={true} />
         </div>
     )
 }

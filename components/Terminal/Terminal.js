@@ -95,7 +95,7 @@ export default function Terminal({
 
     useEffect(() => {
       console.log('focusing on input');
-      setTimeout(() => inputRef.current.focus(), 100);
+      setTimeout(() => inputRef.current.focus(), 1000);
     });
       
     return (

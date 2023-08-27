@@ -45,3 +45,18 @@
     opacity: 0;
   }
 }
+
+.hiddenTextArea {
+  background: transparent!important;
+  border: none!important;
+  color: transparent!important;
+  height: 16px;
+  outline: none!important;
+  overflow: hidden!important;
+  padding: 0!important;
+  position: absolute!important;
+  resize: none!important;
+  text-indent: -9999em!important;
+  white-space: pre!important;
+  width: 16px;
+}

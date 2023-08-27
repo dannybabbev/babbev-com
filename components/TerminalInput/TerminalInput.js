@@ -40,6 +40,8 @@ export default function TerminalInput({
             ))}
 
             { isCursorActive && <div className={blinkerClasses}></div> }
+
+            <textarea className={styles.hiddenTextArea} />
         </div>
     )
 }

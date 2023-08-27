@@ -12,8 +12,8 @@ export default function Page() {
   const os = new BabbevOS();
   const [displayIntroAnimation, setDisplayIntroAnimaion] = useState(true);
 
-  const beginFadeOutAfter = 5000;
-  const hideAnimationAfter = 6000;
+  const beginFadeOutAfter = 4000;
+  const hideAnimationAfter = 5000;
 
   useEffect(() => {
     setTimeout(() => {

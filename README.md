@@ -16,6 +16,6 @@ npm run build
 
 Serve production:
 ```
-npm run server
+npm run start
 ```
 

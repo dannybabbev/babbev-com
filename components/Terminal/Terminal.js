@@ -92,7 +92,7 @@ export default function Terminal({
     useEffect(() => {
       scrollToBottom();
     }, [outputHistory]);
-      
+
     return (
         <div className={styles.container} style={{ height: height }}>
             {inputHistory.map((line, index) => (

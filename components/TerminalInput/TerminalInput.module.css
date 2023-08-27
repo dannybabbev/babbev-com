@@ -47,16 +47,17 @@
 }
 
 .hiddenTextArea {
-  background: transparent!important;
-  border: none!important;
-  color: transparent!important;
+  background: transparent;
+  border: none;
+  color: transparent;
   height: 16px;
-  outline: none!important;
-  overflow: hidden!important;
-  padding: 0!important;
-  position: absolute!important;
-  resize: none!important;
-  text-indent: -9999em!important;
-  white-space: pre!important;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-indent: -9999em;
+  white-space: pre;
   width: 16px;
+  text-shadow: 0px 0px 0px tomato;
 }

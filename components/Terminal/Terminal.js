@@ -16,6 +16,7 @@ export default function Terminal({
     const [inputHistory, setInputHistory] = useState([[]]);
     const [outputHistory, setOutputHistory] = useState([ introText ]);
     const messagesEndRef = useRef(null);
+    const inputRef = useRef(null);
 
     const scrollToBottom = () => {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
@@ -91,7 +92,7 @@ export default function Terminal({
     useEffect(() => {
       scrollToBottom();
     }, [outputHistory]);
-      
+
     return (
         <div className={styles.container} style={{ height: height }}>
             {inputHistory.map((line, index) => (

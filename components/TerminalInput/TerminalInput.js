@@ -9,6 +9,7 @@ export default function TerminalInput({
         isCursorActive = true,
         hideSystemInfo = false,
         isTyping = false,
+        writable = true,
     }) {
 
     const start = `${user}@${host}`;
@@ -40,6 +41,7 @@ export default function TerminalInput({
             ))}
 
             { isCursorActive && <div className={blinkerClasses}></div> }
+            { isCursorActive && writable && <textarea className={styles.hiddenTextArea} autoCapitalize='off' spellCheck='false' /> }
         </div>
     )
 }

@@ -45,3 +45,20 @@
     opacity: 0;
   }
 }
+
+.hiddenTextArea {
+  background: transparent;
+  border: none;
+  color: transparent;
+  height: 16px;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  text-indent: -9999em;
+  white-space: pre;
+  width: 16px;
+  text-shadow: 0px 0px 0px;
+  caret-color: transparent;
+}

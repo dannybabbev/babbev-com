@@ -98,7 +98,7 @@ ${this.techExp()}`;
         ['Twitter', 'https://twitter.com/danbb_fp'],
     ], this.borderlessTable);
     
-    source = () => 'https://github.com/dannybabbev/babbev-com';
+    source = () => 'https://github.com/dannybabbev/babbev-com\n';
 
     booksTable = () => table([
         ['Atlas Shrugged', 'Ayn Rand'],

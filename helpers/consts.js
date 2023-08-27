@@ -15,4 +15,5 @@ export const INTRO_TEXT = [
   'This is my personal website.',
   'Browse around to learn about me and have fun!',
   'Type "help" to get started.',
+  '',
 ];

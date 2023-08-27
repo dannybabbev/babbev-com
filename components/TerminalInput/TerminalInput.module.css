@@ -59,5 +59,6 @@
   text-indent: -9999em;
   white-space: pre;
   width: 16px;
-  text-shadow: 0px 0px 0px tomato;
+  text-shadow: 0px 0px 0px;
+  font-size: 1px;
 }

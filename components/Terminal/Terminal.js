@@ -93,10 +93,9 @@ export default function Terminal({
       scrollToBottom();
     }, [outputHistory]);
 
-    useEffect(() => {
-      console.log('focusing on input');
-      setTimeout(() => inputRef.current.focus(), 1000);
-    });
+    const openKeyboard = () => {
+      inputRef.current.focus();
+    }
       
     return (
         <div className={styles.container} style={{ height: height }}>
@@ -121,6 +120,7 @@ export default function Terminal({
             </div>
 
             <input ref={inputRef} className={styles.hiddenInput} placeholder="Type here..." />
+            <button onClick={openKeyboard}>Open keyboard</button>
         </div>
     )
 }

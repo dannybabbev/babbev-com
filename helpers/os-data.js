@@ -15,7 +15,7 @@ export const PROJECTS_BTCS = [
 
 export const PROJECTS_FP = [
     ['Project', 'Description'],
-    ['Platform', 'I build a full crypto poker platform: backend, frontend, account managment, bitcoin payments. Developed the first provably-fair poker system that utilized a protocol called "Mental Poker" (https://en.wikipedia.org/wiki/Mental_poker). Hired a team of frontend egineers to help me with the UI.'],
+    ['Platform', 'I build a full crypto poker platform: backend, frontend, account managment, bitcoin payments. Developed the first provably-fair poker system that utilized a protocol called "Mental Poker". Hired a team of frontend egineers to help me with the UI.'],
     ['Business', 'Raised seed funding from Bobby Lee, the founder of BTC China, and two other private individuals. I ran the operations for 2.5 years.'],
     ['Poker', '♫ You gotta know when to hold\'em, know when to fold\'em, know when to walk away, know when to run. ♫'],
 ];

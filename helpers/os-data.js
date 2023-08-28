@@ -9,13 +9,13 @@ export const PROJECTS_BH = [
 export const PROJECTS_BTCS = [
     ['Project', 'Description'],
     ['Crypto Deposit', 'Added support for ADA, DOT, KSM and ATOM to the crypto deposit system. Further, I optmized, restuctured and dockerized it. Added a user account system with multiple permission levels and a full audit trail. Built a full UI around the system.'],
-    ['Payment Gateway', 'I initiated and was part of the team that build a full lightning network solution for Bitcoin Suisse. I planned and developed the system and the liquidity managment operations.'],
+    ['Payment Gateway', 'I initiated and was part of the team that built a full lightning network solution for Bitcoin Suisse. I planned and developed the system and the liquidity managment operations.'],
     ['Swiss Crypto Vault', 'I worked on transaction building and seraliztion for an ethereum-like currency.'],
 ];
 
 export const PROJECTS_FP = [
     ['Project', 'Description'],
-    ['Platform', 'I build a full crypto poker platform: backend, frontend, account managment, bitcoin payments. Developed the first provably-fair poker system that utilized a protocol called "Mental Poker". Hired a team of frontend egineers to help me with the UI.'],
+    ['Platform', 'I built a full crypto poker platform: backend, frontend, account managment, bitcoin payments. Developed the first provably-fair poker system that utilized a protocol called "Mental Poker". Hired a team of frontend egineers to help me with the UI.'],
     ['Business', 'Raised seed funding from Bobby Lee, the founder of BTC China, and two other private individuals. I ran the operations for 2.5 years.'],
     ['Poker', '♫ You gotta know when to hold\'em, know when to fold\'em, know when to walk away, know when to run. ♫'],
 ];

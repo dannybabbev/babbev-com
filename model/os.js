@@ -27,9 +27,9 @@ class BabbevOS {
             border: getBorderCharacters('ramac'),
             columnDefault: {
                 paddingLeft: 0,
-                paddingRight: 2,
+                paddingRight: 1,
             },
-            columns: [ { width: 25 }, { width: 40 } ],
+            columns: [ { width: 25 }, { width: 50 } ],
         }
     }
 

@@ -1,4 +1,15 @@
 import { table, getBorderCharacters } from 'table';
+import {
+    ABOUT_TEXT,
+    PROJECTS_BH,
+    PROJECTS_BTCS,
+    PROJECTS_FP,
+    EXPERIENCE_SHORT_CV,
+    BOOKS,
+    SOCIAL,
+    CONTACT,
+    SOURCE,
+} from '../helpers/os-data';
 
 class BabbevOS {
     constructor() {
@@ -11,6 +22,15 @@ class BabbevOS {
             columns: [ { width: 20 }, { width: 50 } ],
             drawHorizontalLine: () => false,
         }
+
+        this.projectsTable = {
+            border: getBorderCharacters('ramac'),
+            columnDefault: {
+                paddingLeft: 0,
+                paddingRight: 2,
+            },
+            columns: [ { width: 25 }, { width: 40 } ],
+        }
     }
 
     notFound = (cmd) => `${cmd}: command not found. Type "help" to get started.`;
@@ -22,6 +42,7 @@ class BabbevOS {
             ['Usage:', ''],
             ['help', 'this message or help for a specific command'],
             ['about', 'short about me, experience, cv'],
+            ['projects', 'projects I have worked on'],
             ['books', 'my favorite books'],
             ['contact', 'contact information'],
             ['social', 'social media links'],
@@ -60,54 +81,59 @@ class BabbevOS {
         });
     }
 
-    experience = () => {
-        const data = [
-            ['Company', 'Period', 'Position', 'Description'],
-            ['Brevan Howard', 'May 2022 - May 2023', 'Risk Strategist', 'Developed a risk management system for the crypto trading desk.'],
-            ['Bitcoin Suisse', 'May 2020 - April 2022', 'Crypto Developer', 'Developed the deposit and withdrawal crypto systems.'],
-            ['Fair Poker', 'Nov 2018 - Dec 2021', 'Founder & Developer', 'Developed a full crypto poker platform.'],
-        ];
-
-        return table(data, {
+    experience = () => table(EXPERIENCE_SHORT_CV, {
             border: getBorderCharacters('ramac'),
-        });
+    });
+
+    aboutMeText = () => table([[ABOUT_TEXT]], {
+        border: getBorderCharacters('void'),
+        columns: [ { width: 65 }],
+        columnDefault: {
+            paddingLeft: 0,
+        },
+        drawHorizontalLine: () => false,
+    }) 
+
+    about = () => `${this.aboutMeText()}\n\nExperience:\n${this.experience()}\n\nTechnologies:\n${this.techExp()}`;
+
+    projectsHelpTable = () => table([
+        ['bh', 'Brevan Howard'],
+        ['btcs', 'Bitcoin Suisse'],
+        ['fp', 'Fair Poker'],
+    ], this.borderlessTable);
+
+    projectsHelp = () => `Usage: projects <company>
+A list of projects and deliverables I have worked on at each company.
+
+${this.projectsHelpTable()}`;
+
+    projectsBh = () => table(PROJECTS_BH, this.projectsTable);
+
+    projectsBtcs = () => table(PROJECTS_BTCS, this.projectsTable);
+
+    projectsFp = () => table(PROJECTS_FP, this.projectsTable);
+
+    projects = (args) => {
+        const [_, company] = args;
+        switch (company) {
+            case 'bh':
+                return this.projectsBh();
+            case 'btcs':
+                return this.projectsBtcs()
+            case 'fp':
+                return this.projectsFp();
+            default:
+                return this.projectsHelp();
+        }
     }
-
-    about = () => 
-        `My name is Daniel Babbev, from Sofia, Bulgaria. I am currently based 
-in Geneva, Switzerland. I am a full-stack software engineer with a 
-passion for crypto. I am expericed in building full crypto systems from
-scratch and maintaining existing enterprise-level software. My approach
-to development is to write clean, test-driven code with an emphasis on 
-security.
-
-Experience:
-${this.experience()}
-
-Technologies:
-${this.techExp()}`;
     
-    contact = () => table([
-        ['Email', 'daniel@babbev.com'],
-        ['Telegram', 'https://t.me/danbb_fp'],
-    ], this.borderlessTable);
+    contact = () => table(CONTACT, this.borderlessTable);
     
-    social = () => table([
-        ['GitHub', 'https://github.com/dannybabbev'],
-        ['LinkedIn', 'https://www.linkedin.com/in/danielbabbev'],
-        ['Twitter', 'https://twitter.com/danbb_fp'],
-    ], this.borderlessTable);
+    social = () => table(SOCIAL, this.borderlessTable);
     
-    source = () => 'https://github.com/dannybabbev/babbev-com\n';
+    source = () => `${SOURCE}\n`;
 
-    booksTable = () => table([
-        ['Atlas Shrugged', 'Ayn Rand'],
-        ['The Mistery of Banking', 'Murray Rothbard'],
-        ['The Black Swan', 'Nassim Taleb'],
-        ['The Blocksize War', 'Jonathan Bier'],
-        ['Reckless', 'Jonathan Bier'],
-        ['Zero to One', 'Peter Thiel'],
-    ], {
+    booksTable = () => table(BOOKS, {
         ...this.borderlessTable,
         columns: [ { width: 40 }, { width: 30 } ],
     });
@@ -133,6 +159,8 @@ ${this.booksTable()}`;
                 return this.help();
             case 'about':
                 return this.about();
+            case 'projects':
+                return this.projects(command);
             case 'contact':
                 return this.contact();
             case 'social':

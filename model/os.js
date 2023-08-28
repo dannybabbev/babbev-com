@@ -29,7 +29,7 @@ class BabbevOS {
                 paddingLeft: 0,
                 paddingRight: 1,
             },
-            columns: [ { width: 25 }, { width: 50 } ],
+            columns: [ { width: 20 }, { width: 55 } ],
         }
     }
 

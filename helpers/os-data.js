@@ -1,10 +1,14 @@
 export const ABOUT_TEXT = 'My name is Daniel Babbev, from Sofia, Bulgaria. I am currently based in Geneva, Switzerland. I am a full-stack software engineer with a passion for crypto. I am expericed in building full crypto systems from scratch and maintaining existing enterprise-level software. My approach to development is to write clean, test-driven code with an emphasis on security.';
 
+export const DESCRIPTION_BH = 'Brevan Howard is a leading investement manager, specialising in global macro and digital assets. They managed $26B as of 2022.';
+
 export const PROJECTS_BH = [
     ['Project', 'Description'],
     ['Risk Management System', 'I developed a system that stressed the margin requirements of a leveraged porfolio across multiple crypto exchanges. It replicated the porfolio margin calculations of Binance, Deribit and FTX. By stressing the market spot and vol up and down I calculated an optimal margin given risk parameters.'],
     ['Daily Reporting System', 'I built the daily risk reposring system that measured PnL, returns, VaR of every PM and the fund as a whole.'],
 ];
+
+export const DESCRIPTION_BTCS = 'Bitcoin Suisse is a leading regulated financial service provider specializing in crypto-assets established in 2013 and headquartered in Zug, Switzerland.';
 
 export const PROJECTS_BTCS = [
     ['Project', 'Description'],
@@ -12,6 +16,8 @@ export const PROJECTS_BTCS = [
     ['Payment Gateway', 'I initiated and was part of the team that built a full lightning network solution for Bitcoin Suisse. I planned and developed the system and the liquidity managment operations.'],
     ['Swiss Crypto Vault', 'I worked on transaction building and seraliztion for an ethereum-like currency.'],
 ];
+
+export const DESCRIPTION_FP = 'Fair Poker was a crypto poker platform that I founded in 2018. It was the first provably-fair poker platform that utilized a protocol called "Mental Poker".';
 
 export const PROJECTS_FP = [
     ['Project', 'Description'],

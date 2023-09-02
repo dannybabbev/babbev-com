@@ -9,6 +9,9 @@ import {
     SOCIAL,
     CONTACT,
     SOURCE,
+    DESCRIPTION_BH,
+    DESCRIPTION_BTCS,
+    DESCRIPTION_FP,
 } from '../helpers/os-data';
 
 class BabbevOS {
@@ -29,7 +32,16 @@ class BabbevOS {
                 paddingLeft: 0,
                 paddingRight: 1,
             },
-            columns: [ { width: 20 }, { width: 55 } ],
+            columns: [ { width: 25 }, { width: 55 } ],
+        }
+
+        this.textParagraphTable = {
+            border: getBorderCharacters('void'),
+            columns: [ { width: 75 }],
+            columnDefault: {
+                paddingLeft: 0,
+            },
+            drawHorizontalLine: () => false,
         }
     }
 
@@ -85,14 +97,7 @@ class BabbevOS {
             border: getBorderCharacters('ramac'),
     });
 
-    aboutMeText = () => table([[ABOUT_TEXT]], {
-        border: getBorderCharacters('void'),
-        columns: [ { width: 65 }],
-        columnDefault: {
-            paddingLeft: 0,
-        },
-        drawHorizontalLine: () => false,
-    }) 
+    aboutMeText = () => table([[ABOUT_TEXT]], this.textParagraphTable) 
 
     about = () => `${this.aboutMeText()}\n\nExperience:\n${this.experience()}\n\nTechnologies:\n${this.techExp()}`;
 
@@ -107,11 +112,14 @@ A list of projects and deliverables I have worked on at each company.
 
 ${this.projectsHelpTable()}`;
 
-    projectsBh = () => table(PROJECTS_BH, this.projectsTable);
+    aboutBh = () => table([[DESCRIPTION_BH]], this.textParagraphTable);
+    projectsBh = () => `${this.aboutBh()}\n${table(PROJECTS_BH, this.projectsTable)}`;
 
-    projectsBtcs = () => table(PROJECTS_BTCS, this.projectsTable);
+    aboutBtcs = () => table([[DESCRIPTION_BTCS]], this.textParagraphTable);
+    projectsBtcs = () => `${this.aboutBtcs()}\n${table(PROJECTS_BTCS, this.projectsTable)}`;
 
-    projectsFp = () => table(PROJECTS_FP, this.projectsTable);
+    aboutFp = () => table([[DESCRIPTION_FP]], this.textParagraphTable);
+    projectsFp = () => `${this.aboutFp()}\n${table(PROJECTS_FP, this.projectsTable)}`;
 
     projects = (args) => {
         const [_, company] = args;

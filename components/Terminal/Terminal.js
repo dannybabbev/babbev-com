@@ -24,7 +24,7 @@ export default function Terminal({
     const messagesEndRef = useRef(null);
 
     const scrollToBottom = () => {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      messagesEndRef.current.scrollIntoView({ block: 'nearest', inline: 'start' });
     };
 
     useEffect(() => {
@@ -65,16 +65,13 @@ export default function Terminal({
 
         scrollToBottom();
 
-        // Add the pressed key to the state
+        // Hande the key down events
         setInputHistory((prevLines) => {
           let currentLine = prevLines[prevLines.length - 1];
 
           if (event.key === "Backspace") {
+            // Delete character
             currentLine = currentLine.slice(0, -1);
-          } else if (event.key === " ") {
-            currentLine = [...currentLine, " "];
-          } else if (event.key === "Shift") {
-            currentLine = [...currentLine];
           } else if (
             event.key === "Enter" ||
             event.key === "\n" ||
@@ -86,9 +83,11 @@ export default function Terminal({
               .split(" ")
               .filter((x) => x !== "");
 
+            // execute the command
             handleCommand(cmd);
             currentLine = [...currentLine];
           } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+            // Browse command history
             const { key } = event;
             const { history, browseIndex } = inputExecutedCmdHistory;
             const selector = key === 'ArrowUp' ? - 1 : 1;
@@ -107,6 +106,7 @@ export default function Terminal({
               }));
             }
           } else if (event.key.length === 1) {
+            // Add character to current line
             // On non ascii-keys even.key is multiple characters long
             currentLine = [...currentLine, event.key];
           }

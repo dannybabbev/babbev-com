@@ -107,9 +107,10 @@ class BabbevOS {
         ['fp', 'Fair Poker'],
     ], this.borderlessTable);
 
-    projectsHelp = () => `Usage: projects <company>
+    projectsHelp = () => `Usage: projects <SUBCOMMAND>
 A list of projects and deliverables I have worked on at each company.
 
+SUBCOMMANDS:
 ${this.projectsHelpTable()}`;
 
     aboutBh = () => table([[DESCRIPTION_BH]], this.textParagraphTable);

@@ -19,6 +19,9 @@ export default function TerminalInput({
         textAsArray = textAsArray.split('');
     }
 
+    // make sure that spaces are not collapsed
+    textAsArray = textAsArray.map((x) => x === ' ' ? '\u00A0' : x);
+
     const blinkerClasses = classNames(
         styles.blinkingBox, 
         { 

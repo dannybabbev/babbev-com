@@ -13,10 +13,15 @@ export default function Terminal({
       height = '400px',
     }) {
       
+    const [inputExecutedCmdHistory, setInputExecutedCmdHistory] = useState(
+      {
+        history: [],
+        browseIndex: 0,
+      }
+    );
     const [inputHistory, setInputHistory] = useState([[]]);
     const [outputHistory, setOutputHistory] = useState([ introText ]);
     const messagesEndRef = useRef(null);
-    const inputRef = useRef(null);
 
     const scrollToBottom = () => {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
@@ -43,6 +48,16 @@ export default function Terminal({
         }
 
         setInputHistory((prevLines) => [...prevLines, []]);
+
+        if (command.length > 0) {
+          setInputExecutedCmdHistory((prevHistory) => {
+            const history = [...prevHistory.history, command.join(' ').split('')];
+            return {
+              history,
+              browseIndex: history.length,
+            };
+          });
+        }
       };
 
       const keyDownHandler = (event) => {
@@ -57,7 +72,7 @@ export default function Terminal({
           if (event.key === "Backspace") {
             currentLine = currentLine.slice(0, -1);
           } else if (event.key === " ") {
-            currentLine = [...currentLine, "\u00A0"];
+            currentLine = [...currentLine, " "];
           } else if (event.key === "Shift") {
             currentLine = [...currentLine];
           } else if (
@@ -68,11 +83,29 @@ export default function Terminal({
             // build the command array from input line
             const cmd = currentLine
               .join("")
-              .split("\u00A0")
+              .split(" ")
               .filter((x) => x !== "");
 
             handleCommand(cmd);
             currentLine = [...currentLine];
+          } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+            const { key } = event;
+            const { history, browseIndex } = inputExecutedCmdHistory;
+            const selector = key === 'ArrowUp' ? - 1 : 1;
+            const histCmd = history[browseIndex + selector];
+            if (histCmd) {
+              currentLine = [...histCmd];
+              setInputExecutedCmdHistory((prevHistory) => ({
+                ...prevHistory,
+                browseIndex: prevHistory.browseIndex + selector,
+              }));
+            } else if (history.length > 0 && key === 'ArrowDown') {
+              currentLine = [];
+              setInputExecutedCmdHistory((prevHistory) => ({
+                ...prevHistory,
+                browseIndex: prevHistory.history.length,
+              }));
+            }
           } else if (event.key.length === 1) {
             // On non ascii-keys even.key is multiple characters long
             currentLine = [...currentLine, event.key];
@@ -89,7 +122,7 @@ export default function Terminal({
       return () => {
         document.removeEventListener("keydown", keyDownHandler);
       };
-    }, [commandHandler]);
+    }, [commandHandler, inputExecutedCmdHistory]);
 
     useEffect(() => {
       scrollToBottom();

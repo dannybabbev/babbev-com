@@ -1,4 +1,4 @@
-export const ABOUT_TEXT = 'My name is Daniel Babbev, from Sofia, Bulgaria. I am currently based in Geneva, Switzerland. I am a full-stack software engineer with a passion for crypto. I am expericed in building full crypto systems from scratch and maintaining existing enterprise-level software. My approach to development is to write clean, test-driven code with an emphasis on security.';
+export const ABOUT_TEXT = 'My name is Daniel Babbev, from Sofia, Bulgaria. I am currently based in Geneva, Switzerland. I am a full-stack software engineer with a passion for crypto. I am experienced in building full crypto systems from scratch and maintaining existing enterprise-level software. My approach to development is to write clean, test-driven code with an emphasis on security.';
 
 export const DESCRIPTION_BH = 'Brevan Howard is a leading investement manager, specialising in global macro and digital assets. They managed $26B as of 2022.';
 

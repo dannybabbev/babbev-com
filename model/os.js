@@ -58,6 +58,7 @@ class BabbevOS {
             ['books', 'my favorite books'],
             ['contact', 'contact information'],
             ['social', 'social media links'],
+            ['matrix', 'boot the matrix'],
             ['source', 'link to the source code of this app'],
         ],
         this.borderlessTable,
@@ -152,6 +153,8 @@ I enjoy reading about philosophy, economics and history.
 
 ${this.booksTable()}`;
 
+    matrix = () => 'booting the matrix...';
+
     /**
      * Execute command
      * @param {string[]} command
@@ -178,6 +181,8 @@ ${this.booksTable()}`;
                 return this.source();
             case 'books':
                 return this.books();
+            case 'matrix':
+                return this.matrix();
             default:
                 return this.notFound(arg1);
         }

@@ -1,0 +1,19 @@
+.container {
+    background: var(--background-color);
+}
+
+.messageBox {
+    position: fixed;       /* Makes the box fixed at a certain position */
+    bottom: 20px;          /* 20px from the bottom of the screen */
+    right: 20px;           /* 20px from the right of the screen */
+    padding: 10px 20px;    /* Some padding for the text */
+    background-color: #333;/* Background color of the box */
+    color: #fff;           /* Text color */
+    border-radius: 8px;    /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    z-index: 1000;         /* Ensure the box is on top of other elements */
+}
+
+.noUnderline:hover {
+    text-decoration: none;
+}

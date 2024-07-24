@@ -12,6 +12,8 @@ import {
     DESCRIPTION_BH,
     DESCRIPTION_BTCS,
     DESCRIPTION_FP,
+    DESCRIPTION_OB,
+    PROJECTS_OB,
 } from '../helpers/os-data';
 
 class BabbevOS {
@@ -103,6 +105,7 @@ class BabbevOS {
     about = () => `${this.aboutMeText()}\n\nExperience:\n${this.experience()}\n\nTechnologies:\n${this.techExp()}`;
 
     projectsHelpTable = () => table([
+        ['ob', 'Ordinals Bot'],
         ['bh', 'Brevan Howard'],
         ['btcs', 'Bitcoin Suisse'],
         ['fp', 'Fair Poker'],
@@ -123,9 +126,14 @@ ${this.projectsHelpTable()}`;
     aboutFp = () => table([[DESCRIPTION_FP]], this.textParagraphTable);
     projectsFp = () => `${this.aboutFp()}\n${table(PROJECTS_FP, this.projectsTable)}`;
 
+    aboutOrdinalsbot = () => table([[DESCRIPTION_OB]], this.textParagraphTable);
+    projectsOrdinalsbot = () => `${this.aboutOrdinalsbot()}\n${table(PROJECTS_OB, this.projectsTable)}`;
+
     projects = (args) => {
         const [_, company] = args;
         switch (company) {
+            case 'ob':
+                return this.projectsOrdinalsbot();
             case 'bh':
                 return this.projectsBh();
             case 'btcs':

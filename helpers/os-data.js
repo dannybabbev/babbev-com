@@ -1,11 +1,11 @@
-export const ABOUT_TEXT = 'My name is Daniel Babbev, from Sofia, Bulgaria. I am currently based in Geneva, Switzerland. I am a full-stack software engineer with a passion for crypto. I am experienced in building full crypto systems from scratch and maintaining existing enterprise-level software. My approach to development is to write clean, test-driven code with an emphasis on security.';
+export const ABOUT_TEXT = 'My name is Daniel Babbev. I am currently based in Zurich area, Switzerland. I am a full-stack software engineer with a passion for crypto. I am experienced in building full crypto systems from scratch and maintaining existing enterprise-level software. I have managed teams of several developers to achieve specific targets. My approach to development is to write clean, test-driven code with an emphasis on security. So far, the systems I have been directly responsible for have handeled billions of dollars in volume.';
 
 export const DESCRIPTION_OB = 'Ordinalsbot is the first ordinals inscription platform. Up to this day it is the premier place to launch ordinals collections, rune projects and other NFTs on ordinals.';
 
 export const PROJECTS_OB = [
     ['Project', 'Description'],
-    ['Backend', 'Lead developer and architect of the backend system. I built a system that can process thousands of inscriptions per hour.'],
-    ['Sat Scanner/Hunter', 'Lead developer and architect of the Sat Scanner and sat hunter projects at ordinalsbot. I built the system that finds and extracts rare satoshis from scratch.'],
+    ['Backend', 'Lead developer and architect of the backend system. I built a system that can process thousands of inscriptions per hour. The system has hanled hundreds of BTC in volume and counting.'],
+    ['Sat Scanner/Hunter', 'Lead developer and architect of the Sat Scanner and sat hunter projects at ordinalsbot. I built the system that finds and extracts rare satoshis from scratch. So far the system has handled 12k BTC in volume and counting.'],
     ['Token Pay', 'Lead developer and architect of a payments processor for runes and BRC20 tokens.'],
     ['Infrastructure', 'I did a full infrastructure set up from scratch on GC. Containerized all systems. Full CI/CD pipelines for automated testing, building and deployment.'],
 ];

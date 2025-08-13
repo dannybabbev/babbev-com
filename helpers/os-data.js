@@ -4,7 +4,8 @@ export const DESCRIPTION_OB = 'Ordinalsbot is the first ordinals inscription pla
 
 export const PROJECTS_OB = [
     ['Project', 'Description'],
-    ['Backend', 'Lead developer and architect of the backend system. I built a system that can process thousands of inscriptions per hour. The system has hanled hundreds of BTC in volume and counting.'],
+    ['Backend', 'Lead developer and architect of the backend system. I built a scalable system that can process thousands of inscriptions per minute. The system has handled hundreds of BTC in volume and counting.'],
+    ['Trio Marketplace', 'Architect and maintainer of the digital assets marketplace platform.'],
     ['Sat Scanner/Hunter', 'Lead developer and architect of the Sat Scanner and sat hunter projects at ordinalsbot. I built the system that finds and extracts rare satoshis from scratch. So far the system has handled 12k BTC in volume and counting.'],
     ['Token Pay', 'Lead developer and architect of a payments processor for runes and BRC20 tokens.'],
     ['Infrastructure', 'I did a full infrastructure set up from scratch on GC. Containerized all systems. Full CI/CD pipelines for automated testing, building and deployment.'],
@@ -38,7 +39,7 @@ export const PROJECTS_FP = [
 
 export const EXPERIENCE_SHORT_CV = [
     ['Company', 'Period', 'Position', 'Description'],
-    ['Self-Employed', 'June 2023 - Present', 'Crypto Developer/ Consultant', 'Working with crypto firms as a consultant. Focused on ordinals with OrdinalsBot.'],
+    ['OrdinalsBot', 'June 2023 - Present', 'Crypto Developer/ Backend Lead', 'OrdinalsBot is the first bitcoin digital assets inscription platform.'],
     ['Brevan Howard', 'May 2022 - May 2023', 'Risk Strategist', 'Developed a risk management system for the crypto trading desk.'],
     ['Bitcoin Suisse', 'May 2020 - April 2022', 'Crypto Developer', 'Developed the deposit and withdrawal crypto systems.'],
     ['Fair Poker', 'Nov 2018 - Dec 2021', 'Founder & Developer', 'Developed a full crypto poker platform.'],

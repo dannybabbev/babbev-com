@@ -76,19 +76,21 @@ class BabbevOS {
         const react = 2019;
         const csharp = 3;
         const go = 3;
+        const rust = 2024;
 
         const expStr = (y) => `${y}+`;
 
         const data = [
             ['Technology', 'Years of experience'],
+            ['JS / TS', expStr(year - js)],
+            ['Go', expStr(go)],
+            ['Rust', expStr(year - rust)],
+            ['C#', expStr(csharp)],
+            ['Python', expStr(year - python)],
             ['Bitcoin / Crypto', expStr(year - crypto)],
             ['Linux', expStr(year - linux)],
-            ['JavaScript / Ts', expStr(year - js)],
-            ['Python', expStr(year - python)],
             ['Docker / Swarm / k8s', expStr(year - docker)],
             ['React', expStr(year - react)],
-            ['Go', expStr(go)],
-            ['C#', expStr(csharp)],
         ];
 
         return table(data, {

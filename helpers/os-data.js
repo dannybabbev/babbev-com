@@ -40,7 +40,7 @@ export const PROJECTS_FP = [
 
 export const EXPERIENCE_SHORT_CV = [
     ['Company', 'Period', 'Position', 'Description'],
-    ['OrdinalsBot', 'June 2023 - Present', 'Backend Lead / Senior Developer', 'OrdinalsBot is the first (ordinals) digital assets inscription platform on Bitcoin.'],
+    ['OrdinalsBot', 'June 2023 - November 2025', 'Backend Lead / Senior Developer', 'OrdinalsBot is the first (ordinals) digital assets inscription platform on Bitcoin.'],
     ['Brevan Howard', 'May 2022 - May 2023', 'Risk Strategist', 'Developed a risk management system for the crypto trading desk.'],
     ['Bitcoin Suisse', 'May 2020 - April 2022', 'Crypto Developer', 'Developed the deposit and withdrawal crypto systems.'],
     ['Fair Poker', 'Nov 2018 - Dec 2021', 'Founder & Developer', 'Developed a full crypto poker platform.'],

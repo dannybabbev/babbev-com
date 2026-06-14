@@ -3,6 +3,7 @@ import {
     ABOUT_TEXT,
     PROJECTS_BH,
     PROJECTS_BTCS,
+    PROJECTS_DTS,
     PROJECTS_FP,
     EXPERIENCE_SHORT_CV,
     BOOKS,
@@ -11,6 +12,7 @@ import {
     SOURCE,
     DESCRIPTION_BH,
     DESCRIPTION_BTCS,
+    DESCRIPTION_DTS,
     DESCRIPTION_FP,
     DESCRIPTION_OB,
     PROJECTS_OB,
@@ -110,6 +112,7 @@ class BabbevOS {
         ['ob', 'Ordinals Bot'],
         ['bh', 'Brevan Howard'],
         ['btcs', 'Bitcoin Suisse'],
+        ['dts', 'Digital Trust Solutions GmbH'],
         ['fp', 'Fair Poker'],
     ], this.borderlessTable);
 
@@ -124,6 +127,9 @@ ${this.projectsHelpTable()}`;
 
     aboutBtcs = () => table([[DESCRIPTION_BTCS]], this.textParagraphTable);
     projectsBtcs = () => `${this.aboutBtcs()}\n${table(PROJECTS_BTCS, this.projectsTable)}`;
+
+    aboutDts = () => table([[DESCRIPTION_DTS]], this.textParagraphTable);
+    projectsDts = () => `${this.aboutDts()}\n${table(PROJECTS_DTS, this.projectsTable)}`;
 
     aboutFp = () => table([[DESCRIPTION_FP]], this.textParagraphTable);
     projectsFp = () => `${this.aboutFp()}\n${table(PROJECTS_FP, this.projectsTable)}`;
@@ -140,6 +146,8 @@ ${this.projectsHelpTable()}`;
                 return this.projectsBh();
             case 'btcs':
                 return this.projectsBtcs()
+            case 'dts':
+                return this.projectsDts();
             case 'fp':
                 return this.projectsFp();
             default:

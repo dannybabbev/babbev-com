@@ -49,7 +49,7 @@ export const PROJECTS_FP = [
 export const EXPERIENCE_SHORT_CV = [
     ['Company', 'Period', 'Position', 'Description'],
     ['Digital Trust Solutions GmbH', 'January 2025 - Present', 'Managing Director / Founder', 'Software development company focused on mission-critical systems in blockchain and beyond.'],
-    ['Bitcoin Suisse', 'March 2026 - Present', 'Senior Custody Developer', 'Working on the Custody Team, building and maintaining the Bitcoin Suisse Vault.'],
+    ['Bitcoin Suisse', 'March 2026 - October 2026', 'Senior Custody Developer', 'Working on the Custody Team, building and maintaining the Bitcoin Suisse Vault.'],
     ['OrdinalsBot', 'June 2023 - November 2025', 'Backend Lead / Senior Developer', 'OrdinalsBot is the first (ordinals) digital assets inscription platform on Bitcoin.'],
     ['Brevan Howard', 'May 2022 - May 2023', 'Risk Strategist', 'Developed a risk management system for the crypto trading desk.'],
     ['Bitcoin Suisse', 'May 2020 - April 2022', 'Crypto Developer', 'Developed the deposit and withdrawal crypto systems.'],

@@ -24,7 +24,7 @@ export const DESCRIPTION_BTCS = 'Bitcoin Suisse is a leading regulated financial
 
 export const PROJECTS_BTCS = [
     ['Project', 'Description'],
-    ['Bitcoin Suisse Vault', 'Senior Custody Developer on the Custody Team, working on internal custody systems.'],
+    ['Bitcoin Suisse Vault', 'Senior Custody Engineer on the Custody Team, working on internal custody systems.'],
     ['Crypto Deposit', 'Added support for ADA, DOT, KSM and ATOM to the crypto deposit system. Further, I optimized, restructured and dockerized it. Added a user account system with multiple permission levels and a full audit trail. Built a full UI around the system.'],
     ['Payment Gateway', 'I initiated and was part of the team that built a full lightning network solution for Bitcoin Suisse. I planned and developed the system and the liquidity managment operations.'],
     ['Swiss Crypto Vault', 'I worked on transaction building and serialization for an ethereum-like currency.'],
@@ -49,7 +49,7 @@ export const PROJECTS_FP = [
 export const EXPERIENCE_SHORT_CV = [
     ['Company', 'Period', 'Position', 'Description'],
     ['Digital Trust Solutions GmbH', 'January 2025 - Present', 'Managing Director / Founder', 'Software development company focused on mission-critical systems in blockchain and beyond.'],
-    ['Bitcoin Suisse', 'March 2026 - October 2026', 'Senior Custody Developer', 'Working on the Custody Team, building and maintaining the Bitcoin Suisse Vault.'],
+    ['Bitcoin Suisse', 'March 2026 - October 2026', 'Senior Custody Engineer', 'Working on the Custody Team, building and maintaining the Bitcoin Suisse Vault.'],
     ['OrdinalsBot', 'June 2023 - November 2025', 'Backend Lead / Senior Developer', 'OrdinalsBot is the first (ordinals) digital assets inscription platform on Bitcoin.'],
     ['Brevan Howard', 'May 2022 - May 2023', 'Risk Strategist', 'Developed a risk management system for the crypto trading desk.'],
     ['Bitcoin Suisse', 'May 2020 - April 2022', 'Crypto Developer', 'Developed the deposit and withdrawal crypto systems.'],
